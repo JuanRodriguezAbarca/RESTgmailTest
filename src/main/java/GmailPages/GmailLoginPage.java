@@ -1,9 +1,8 @@
-package GmailLoginPage;
+package GmailPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.PageModel;
-import utils.WebDriverClass;
 
 /**
  * Created by Juan_Rodriguez on 6/30/2015.
@@ -28,6 +27,7 @@ public class GmailLoginPage extends PageModel{
     }
 
     public void logInWithCredentials(String userName, String password){
+        LOG.info("Login in as: "+userName+" and "+password);
         loginUserNameTextBox().sendKeys(userName);
         loginNextButton().click();
         loginPasswordTextBox().sendKeys(password);
