@@ -23,35 +23,14 @@ public class WebDriverClass {
 
     protected static final Logger LOG = LoggerFactory.getLogger(WebDriverClass.class);
 
-    protected final String driverType;
-    private static WebDriver remoteWebDriver;
+    private static WebDriver driver;
 
 
-    public WebDriverClass(String driverType) {
-        this.driverType = driverType;
-        setRemoteDriver();
-        LOG.info("Instantiating Driver as "+driverType);
-    }
-
-    public WebDriver setRemoteDriver(){
-        switch (driverType){
-            case "firefox":
-                remoteWebDriver = new FirefoxDriver();
-
+    public static WebDriver getInstance() {
+        if (driver == null) {
+            WebDriverClass.driver = new FirefoxDriver();
         }
-
-        return  remoteWebDriver;
-    }
-
-
-    public WebDriver getRemoteWebDriver() {
-        LOG.info("Commands to the driver");
-        return remoteWebDriver;
-
-    }
-
-    public void close() {
-        remoteWebDriver.quit();
+        return driver;
     }
 
 
