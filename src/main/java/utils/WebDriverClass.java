@@ -27,10 +27,6 @@ public class WebDriverClass {
     private RemoteWebDriver remoteWebDriver;
 
 
-
-
-
-
     public WebDriverClass(String driverType) {
         this.driverType = driverType;
         setRemoteDriver();
