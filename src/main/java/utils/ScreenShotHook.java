@@ -28,8 +28,6 @@ public class ScreenShotHook  extends PageModel{
     public void afterTest(Scenario scenario) {
 
         LOG.info("driver property contains currently: "+System.getProperty("driver"));
-        if(!System.getProperty("driver").contentEquals("browserStack")) {
-
             try {
 
                 Map<String,Object> screenSots = ScreenShotTaker.getScreenShotsForCurrentTest();
@@ -50,7 +48,7 @@ public class ScreenShotHook  extends PageModel{
             } catch (WebDriverException wde) {
                 LOG.error(wde.getMessage());
             }
-        }
+
         LOG.info("Scenario Completed: " + scenario.getName());
     }
 
