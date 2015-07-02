@@ -1,4 +1,5 @@
 import cucumber.api.CucumberOptions;
+import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
@@ -8,12 +9,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        format = {"pretty", "html:target/cucumber-html-report"},
+        format = {"pretty", "html:target/cucumber-html-report"}, snippets = SnippetType.CAMELCASE,
 //        features="src/test/resources",
         tags = {"@prueba"}
 )
 
 
 public class CukeRunnerTest {
+
 
 }

@@ -1,8 +1,9 @@
 package utils;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import cucumber.api.Scenario;
+import org.junit.After;
+import org.junit.Before;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
@@ -36,10 +38,9 @@ public abstract class PageModel {
         driver.get(url);
     }
 
-    public void killBrowser() {
-        driver.close();
-    }
+
 }
+
 
 
 
