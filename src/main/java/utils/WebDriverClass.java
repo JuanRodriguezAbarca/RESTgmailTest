@@ -35,7 +35,7 @@ public class WebDriverClass {
 
     }
 
-    public static WebDriver driverSelector() {
+    private static WebDriver driverSelector() {
 
         String driverType = System.getProperty("driver");
         LOG.info("Driver loading is " + driverType);
