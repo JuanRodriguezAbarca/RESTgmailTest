@@ -16,7 +16,7 @@
         <cucumber-jvm_version>1.2.0</cucumber-jvm_version>
         <selenium_version>2.45.0</selenium_version>
         <junit.version>4.11</junit.version>
-        <driverType>firefox</driverType>
+        <driver>firefox</driver>
         <chromeDriverPath>${basedir}\src\main\resources\drivers\chromedriver.exe</chromeDriverPath>
         <ieDriverPath>${basedir}\src\main\resources\drivers\IEDriverServer.exe</ieDriverPath>
     </properties>
