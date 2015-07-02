@@ -1,5 +1,6 @@
 package utils;
 
+import org.apache.commons.exec.ShutdownHookProcessDestroyer;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +12,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -30,21 +33,27 @@ public class WebDriverClass {
 
 
     public static WebDriver getInstance() {
-
         if (driver == null) {
-            WebDriverClass.driver = driverSelector();
+            try {
+
+                WebDriverClass.driver = driverSelector();
+            } finally {
+                Runtime.getRuntime().addShutdownHook(
+                        new Thread(new BrowserClearup()));
+            }
         }
         return driver;
+
     }
 
-        public static WebDriver driverSelector(){
+    public static WebDriver driverSelector() {
 
-         String driverType = System.getProperty("driver");
-        LOG.info("Driver loading is "+driverType);
-        switch(driverType){
+        String driverType = System.getProperty("driver");
+        LOG.info("Driver loading is " + driverType);
+        switch (driverType) {
 
             case "firefox":
-                    return new FirefoxDriver();
+                return new FirefoxDriver();
             case "chrome":
                 return new ChromeDriver();
             case "ie":
@@ -55,6 +64,24 @@ public class WebDriverClass {
         }
     }
 
+
+    private static class BrowserClearup implements Runnable {
+        public void run(){
+            LOG.info("Closing the broser...");
+            close();
+        }
+    }
+
+
+    public static void close(){
+        try{
+            getInstance().quit();
+            driver=null;
+            LOG.info("Closing the browser");
+        } catch (UnreachableBrowserException e){
+            LOG.info("cannot close the browser: unreachable browser");
+        }
+    }
 
 
 }
