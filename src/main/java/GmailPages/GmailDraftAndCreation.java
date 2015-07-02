@@ -48,7 +48,7 @@ public class GmailDraftAndCreation extends PageModel{
         LOG.info("User name expected: "+userName);
         String userLogged = userLoggedIn().getText();
         LOG.info("User name found: "+userLogged);
-        Assert.assertTrue("User is not logged in or wrong user is logged", userLogged.contentEquals(userName));
+        Assert.assertTrue("User is not logged in or wrong user is logged", userLogged.equalsIgnoreCase(userName));
 
     }
 
