@@ -41,7 +41,7 @@
                 <version>2.18</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <driverType>${driverType}</driverType>
+                        <driverType>${driver}</driverType>
                         <webdriver.chrome.driver>${chromeDriverPath}</webdriver.chrome.driver>
                         <webdriver.ie.driver>${ieDriverPath}</webdriver.ie.driver>
                     </systemPropertyVariables>
