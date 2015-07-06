@@ -48,7 +48,7 @@ public class WebDriverClass {
             case "ie":
                 return new InternetExplorerDriver();
             default:
-                throw new ExceptionInInitializerError("No driver loaded");
+                throw new ExceptionInInitializerError("No driver loaded, '"+driverType+"' is not recognized");
 
         }
     }
