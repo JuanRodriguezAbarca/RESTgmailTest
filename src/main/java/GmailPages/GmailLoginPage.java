@@ -26,11 +26,18 @@ public class GmailLoginPage extends PageModel{
         return waitForExpectedElement(By.id("signIn"));
     }
 
+    private WebElement loginRememberMeCheckBox(){
+        return waitForExpectedElement(By.id("PersistentCookie"));
+    }
+
     public void logInWithCredentials(String userName, String password){
         LOG.info("Login in as: "+userName+" and "+password);
         loginUserNameTextBox().sendKeys(userName);
         loginNextButton().click();
         loginPasswordTextBox().sendKeys(password);
+        if(loginRememberMeCheckBox().isSelected()){
+            loginRememberMeCheckBox().click();
+        }
         loginSignInButton().click();
     }
 

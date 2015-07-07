@@ -42,11 +42,17 @@ public class WebDriverClass {
         switch (driverType) {
 
             case "firefox":
+
+
                 return new FirefoxDriver();
             case "chrome":
                 return new ChromeDriver();
             case "ie":
-                return new InternetExplorerDriver();
+                WebDriver tempDriver=new InternetExplorerDriver();
+                System.setProperty("webdriver.ie.driver.silent","true");
+                System.setProperty("webdriver.ie.driver.loglevel","ERROR");
+
+                return tempDriver;
             default:
                 throw new ExceptionInInitializerError("No driver loaded, '"+driverType+"' is not recognized");
 
