@@ -1,7 +1,7 @@
-# BDDFrameWorkCreation
-BDD FrameWork using Maven, Cucumber-JVM, JUnit, SLF4J/Log4j
+# BDDFrameWorkForGmailRestTesting
+BDD FrameWork using Maven, Cucumber-JVM, JUnit, SLF4J/Log4j, REST-assured
 
-1)	Development of a small testing framework using Maven, Cucumber-JVM, JUnit, SLF4J/Log4j. 
+1)	Development of a small testing framework using Maven, Cucumber-JVM, JUnit, SLF4J/Log4j.
   a.	Framework should be a Maven project;
   b.	Tests should run using mvn test command;
   c.	Framework should be able to run tests in different browsers;
@@ -12,3 +12,4 @@ BDD FrameWork using Maven, Cucumber-JVM, JUnit, SLF4J/Log4j
   b.	In the feature file the first step should be "Given" the user is logged into the system
   c.	Use scenario outlines, passing parameters, data tables
 
+All the test will be done using HTTP requests
