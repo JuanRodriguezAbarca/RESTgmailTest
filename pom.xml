@@ -13,9 +13,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cucumber-jvm_version>1.2.0</cucumber-jvm_version>
+        <cucumber-jvm_version>1.2.3</cucumber-jvm_version>
         <selenium_version>2.45.0</selenium_version>
         <junit.version>4.11</junit.version>
+        <RESTassured_version>2.4.1</RESTassured_version>
         <driverFF>firefox</driverFF>
         <chromeDriverPath>${basedir}\src\main\resources\drivers\chromedriver.exe</chromeDriverPath>
         <ieDriverPath>${basedir}\src\main\resources\drivers\IEDriverServer.exe</ieDriverPath>
@@ -53,6 +54,8 @@
 
     <dependencies>
 
+
+        <!-- Selenium dependencies-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -83,6 +86,8 @@
             <version>${selenium_version}</version>
         </dependency>
 
+
+        <!-- Cucumber dependencies-->
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -95,25 +100,40 @@
             <version>${cucumber-jvm_version}</version>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>info.cukes</groupId>-->
-        <!--<artifactId>cucumber-spring</artifactId>-->
-        <!--<version>${cucumber-jvm_version}</version>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-html</artifactId>
             <version>0.2.3</version>
         </dependency>
 
-
+        <!-- JUnit dependencies-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
         </dependency>
 
+        <!-- REST assured dependencies-->
+        <dependency>
+            <groupId>jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${RESTassured_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jayway.restassured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>${RESTassured_version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>restassured.examples</groupId>-->
+            <!--<artifactId>rest-assured-itest-java</artifactId>-->
+            <!--<version>${RESTassured_version}</version>-->
+        <!--</dependency>-->
+
+
+        <!-- SLF4J dependencies-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>

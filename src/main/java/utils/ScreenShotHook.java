@@ -5,6 +5,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,7 +47,7 @@ public class ScreenShotHook  extends PageModel{
 
                 }
             } catch (WebDriverException wde) {
-                LOG.error(wde.getMessage());
+//                LOG.error(wde.getMessage());
             }
 
         LOG.info("Scenario Completed: " + scenario.getName());

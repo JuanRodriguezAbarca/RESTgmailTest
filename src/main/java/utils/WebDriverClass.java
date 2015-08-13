@@ -30,6 +30,8 @@ public class WebDriverClass {
                 Runtime.getRuntime().addShutdownHook(
                         new Thread(new BrowserClearup()));
             }
+        } else{
+            driver.manage().deleteAllCookies();
         }
         return driver;
 
@@ -38,12 +40,12 @@ public class WebDriverClass {
     private static WebDriver driverSelector() {
 
         String driverType = System.getProperty("driver");
+        if(driverType==null)
+            driverType="";
         LOG.info("Driver loading is " + driverType);
         switch (driverType) {
 
             case "firefox":
-
-
                 return new FirefoxDriver();
             case "chrome":
                 return new ChromeDriver();
@@ -51,10 +53,11 @@ public class WebDriverClass {
                 WebDriver tempDriver=new InternetExplorerDriver();
                 System.setProperty("webdriver.ie.driver.silent","true");
                 System.setProperty("webdriver.ie.driver.loglevel","ERROR");
-
                 return tempDriver;
+
             default:
-                throw new ExceptionInInitializerError("No driver loaded, '"+driverType+"' is not recognized");
+                return new FirefoxDriver();
+//                throw new ExceptionInInitializerError("No driver loaded, '"+driverType+"' is not recognized");
 
         }
     }
@@ -74,7 +77,7 @@ public class WebDriverClass {
             driver=null;
             LOG.info("Closing the browser");
         } catch (UnreachableBrowserException e){
-            LOG.info("cannot close the browser: unreachable browser");
+//            LOG.info("cannot close the browser: unreachable browser");
         }
     }
 
